@@ -12,6 +12,8 @@ import AddPlants from "../Pages/AddPlants";
 import MyPlants from "../Pages/MyPlants";
 import SecOne from "../components/SecOne";
 import SecTwo from "../components/SecTwo";
+import PlantDetails from "../Pages/PlantDetails";
+import Loading from "../Pages/Loading";
 
 
 
@@ -47,6 +49,7 @@ const router = createBrowserRouter(
 
         {
             path: '/allplants',
+            loader:()=>fetch ('http://localhost:3000/plants'),
             element: <AllPlants></AllPlants>
 
         },
@@ -66,6 +69,15 @@ const router = createBrowserRouter(
 
 
         },
+        // {
+        //     path:'/plantdetails/:id',
+        //    loader:()=>fetch ('http://localhost:3000/plants'),
+        //    hydrateFallbackElement: <Loading></Loading>,
+        //     element:<PrivateRouter>
+        //         <PlantDetails></PlantDetails>
+        //     </PrivateRouter>
+
+        // },
 
         {
             path: '/auth',

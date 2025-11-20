@@ -1,22 +1,23 @@
-import React, { use, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
+
 const Register = () => {
 
 
-    const { createUser, setUser, updateUser } = use(AuthContext);
+    const { createUser, setUser, updateUser } = useContext(AuthContext);
 
 
     const [nameError, setNameError] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const [showPassword, setShowPassword] = useState (false)
+    const [showPassword, setShowPassword] = useState(false)
 
 
 
-    const handleRegister = (e) => {
+    const handleRegister =  async (e) => {
 
         e.preventDefault();
         const form = e.target;
@@ -40,15 +41,20 @@ const Register = () => {
 
         setErrorMessage("");
 
-        createUser(email, password)
+
+ createUser(email, password)
             .then(result => {
                 const user = result.user;
 
-                updateUser({ display: name, photoURL: photo })
+                updateUser( { 
+                    displayName: name,
+                     photoURL: photo 
+                    })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photo })
 
                     })
+
 
                     .catch((error) => {
                         console.log(error);
@@ -58,19 +64,12 @@ const Register = () => {
 
 
             })
+        .catch((error) => {
+            setErrorMessage(error.message)
+        })
 
 
-
-
-
-            .catch((error) => {
-                setErrorMessage(error.message)
-            })
-
-
-
-
-    };
+};
 
 
 
@@ -130,7 +129,7 @@ const Register = () => {
                                         />
                                         <button onClick={() => { setShowPassword(!showPassword) }}
                                             className='btn btn-xs border-none absolute bg-gray-100'>
-                                            {showPassword ?<FaEye></FaEye> :<FaEyeSlash></FaEyeSlash> } </button>
+                                            {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>} </button>
                                     </div>
                                 </label>
                                 <p className="validator-hint hidden">

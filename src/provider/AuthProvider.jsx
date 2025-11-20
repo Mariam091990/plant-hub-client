@@ -80,7 +80,7 @@ const AuthProvider = ({ children }) => {
 
         const unsbscribe = onAuthStateChanged(auth, (currentUser) => {
 
-            setUser(currentUser)
+           setUser(currentUser ? { ...currentUser } : null);
             setLoading(false)
         })
         return () => {
@@ -104,13 +104,13 @@ const AuthProvider = ({ children }) => {
     }
 
 
-    return <AuthContext value={authData}>
+    return <AuthContext.Provider value={authData}>
 
 
         {children}
 
 
-    </AuthContext>;
+    </AuthContext.Provider>;
 
 };
 

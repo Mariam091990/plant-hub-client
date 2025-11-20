@@ -5,6 +5,12 @@ import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import userIcon from '../assets/user.png'
 import plant from '../assets/plant.jpg'
+
+
+
+
+
+
 const Navbar = () => {
 
 
@@ -18,16 +24,23 @@ const Navbar = () => {
   </>
 
 const { user, logOut} =useContext(AuthContext);
+// console.log(user);
 
 const [name, setName]= useState("");
-
-
+// console.log(user ,name);
 const navigate = useNavigate();
 
+
+
+
+
  useEffect(() => {
-  if (user?.name) {
-    setName(user.name);
-  }
+
+ 
+  setName(user?.displayName || "");
+  
+  
+  
 }, [user]);
 
 
@@ -93,7 +106,7 @@ const handleLogout =()=>{
 
 
           <div className="tooltip tooltip-bottom p-1" 
-          data-tip={`${name|| "Unknown User"}\n ${user?.email|| "" }`}
+          data-tip={`${name}\n ${user?.email}`}
 
           >
             {/* <div className="tooltip-content">
