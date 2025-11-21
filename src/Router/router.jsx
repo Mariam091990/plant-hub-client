@@ -69,15 +69,15 @@ const router = createBrowserRouter(
 
 
         },
-        // {
-        //     path:'/plantdetails/:id',
-        //    loader:()=>fetch ('http://localhost:3000/plants'),
-        //    hydrateFallbackElement: <Loading></Loading>,
-        //     element:<PrivateRouter>
-        //         <PlantDetails></PlantDetails>
-        //     </PrivateRouter>
+        {
+            path:'/plantdetails/:id',
+           loader:()=>fetch ('http://localhost:3000/plants'),
+           hydrateFallbackElement: <Loading></Loading>,
+            element:<PrivateRouter>
+                <PlantDetails></PlantDetails>
+            </PrivateRouter>
 
-        // },
+        },
 
         {
             path: '/auth',
