@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useParams } from "react-router";
 
 const PlantDetails = () => {
     const plantData = useLoaderData(); // array of plants or single plant
@@ -12,7 +12,7 @@ const PlantDetails = () => {
             const found = plantData.find(p => p._id == id);
             // eslint-disable-next-line react-hooks/set-state-in-effect
             setPlant(found);
-        } else {
+        } else {       
             // if loader already returns single plant object
             setPlant(plantData);
         }
@@ -58,8 +58,13 @@ const PlantDetails = () => {
                         <p><strong>Next Watering:</strong> {nextWatered}</p>
                         <p><strong>Health Status:</strong> {healthStatus}</p>
                     </div>
-                </div>
-            </div>
+                    <div className="flex  gap-4 mx-auto mt-4">
+                  <Link to="/allplants"><button className="btn btn-primary text-xl ">All Plants</button></Link>  
+                  <Link to="/myplants"><button className="btn btn-secondary text-xl">My Plants</button></Link> 
+                </div></div>
+
+
+            </div> 
         </div>
     );
 };
