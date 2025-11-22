@@ -1,13 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
-const PlantUpdtDel = ({ plant }) => {
+
+const PlantUpdtDel = ({ plant, plants , setPlants }) => {
     const { image, wateringFrequency, plantName, category, _id } = plant;
 
+
+    const handleDelete= (_id)=>{
+ console.log(_id);
+
+ Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+fetch(`http://localhost:3000/plants/${_id}`, {
+method: 'DELETE'
+
+})
+
+.then (res=>res.json())
+.then (data=>{
+    if (data.deletedCount) {
+        Swal.fire({
+      title: "Deleted!",
+      text: "plant has been deleted.",
+      icon: "success"
+    });
+
+const remainingPlants = plants. filter (singlePlant => singlePlant._id !== _id )
+
+setPlants(remainingPlants);
+    }
+})
+
+
+    
+  }
+});
+        
+    }
 
     return (
         <div>
             <div className='container mx-auto'>
+
 
 
                 <div className="card bg-base-100 shadow-md gap-5  cursor-pointer w-[70%] h-96 mask-t-from-90% mt-12">
@@ -39,14 +83,15 @@ const PlantUpdtDel = ({ plant }) => {
                 </div>
 
                 <div className="w-[50%] mx-auto flex gap-2">
-                    <Link className="btn btn-active btn-primary" to={`/plantdetails/${_id}`}>View</Link>
+                    <button> <Link className="btn btn-active btn-primary" to={`/plantdetails/${_id}`}>View</Link></button>
                     <button className="btn btn-active btn-secondary">Update</button>
-                    <button className="btn btn-active btn-accent">Delete</button>
+                    <button onClick={()=>handleDelete(_id)} className="btn btn-active btn-accent">Delete</button>
                 </div>
 
 
 
             </div>
+
         </div>
     );
 };

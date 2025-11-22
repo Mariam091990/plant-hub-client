@@ -14,6 +14,7 @@ import SecOne from "../components/SecOne";
 import SecTwo from "../components/SecTwo";
 import PlantDetails from "../Pages/PlantDetails";
 import Loading from "../Pages/Loading";
+import Update from "../Pages/Update";
 
 
 
@@ -70,6 +71,15 @@ const router = createBrowserRouter(
 
 
         },
+
+{
+path:'/update/:id',
+loader:({params})=> fetch (`http://localhost:3000/plants/${params.id}`),
+element:<Update></Update>
+
+},
+
+
         {
             path:'/plantdetails/:id',
            loader:()=>fetch ('http://localhost:3000/plants'),
