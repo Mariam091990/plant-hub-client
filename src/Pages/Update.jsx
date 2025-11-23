@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { LuAsterisk } from 'react-icons/lu';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Swal from 'sweetalert2';
 
 const Update = () => {
 
@@ -30,7 +33,14 @@ const Update = () => {
 
             .then(res => res.json())
             .then(data => {
-                console.log('data after updated', data);
+                if (data.modifiedCount) {
+                     Swal.fire({
+                                            title: "Updated Successfully!",
+                                            text: "Updated plant has been saved.",
+                                            icon: "success",
+                                            confirmButtonColor: "#16a34a"
+                                        });
+                }
             })
 
 
@@ -42,7 +52,7 @@ const Update = () => {
     return (
         <div>
 
-
+            <Navbar></Navbar>
 
             <div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-10">
                 <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
@@ -206,6 +216,9 @@ const Update = () => {
                     </button>
 
                 </form>
+
+                <Footer></Footer>
+
             </div>
 
 

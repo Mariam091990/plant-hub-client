@@ -25,6 +25,7 @@ const AddPlant = () => {
             healthStatus: form.healthStatus.value,
             userEmail: user?.email,
             userName: user?.displayName,
+             createdAt: new Date(),
         };
 
         console.log(newPlant);
@@ -139,7 +140,7 @@ const AddPlant = () => {
                             name="wateringFrequency"
                             required
                             className="w-full p-3 border rounded"
-                            placeholder="e.g., every 3 days"
+                            placeholder="Watering-Frequency"
                         />
                     </div>
 
