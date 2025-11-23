@@ -1,32 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LuAsterisk } from 'react-icons/lu';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Update = () => {
-const  { image, wateringFrequency, plantName, description,category, _id } =useLoaderData();
 
-const handleUpdatePlant = e =>{
- e.preventDefault();
+    const { user } = useContext(AuthContext);
+    const { image, wateringFrequency, careLevel, plantName, lastWatered, nextWatered, healthStatus, description, category, _id } = useLoaderData();
 
-}
+    console.log(image, wateringFrequency, careLevel, plantName, lastWatered, nextWatered, healthStatus, description, category, _id);
+    const handleUpdatePlant = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const updatePlants = Object.fromEntries(formData.entries())
+        console.log(updatePlants);
+
+
+        // send updatedPlant to db and the carrier is req.body
+
+        fetch(`http://localhost:3000/plants/${_id}`, {
+
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatePlants)
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log('data after updated', data);
+            })
 
 
 
-
-
-
-
-
+    }
 
 
 
     return (
         <div>
-            
 
 
-<div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-10">
+
+            <div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-10">
                 <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
-                   Update the Added Plant
+                    Update the Added Plant
                 </h2>
 
                 <form onSubmit={handleUpdatePlant} className="grid grid-cols-1 gap-5">
@@ -37,6 +57,7 @@ const handleUpdatePlant = e =>{
                         <input
                             type="text"
                             name="image"
+                            defaultValue={image}
                             required
                             className="w-full p-3 border rounded"
                             placeholder="Enter Image URL"
@@ -49,6 +70,7 @@ const handleUpdatePlant = e =>{
                         <input
                             type="text"
                             name="plantName"
+                            defaultValue={plantName}
                             required
                             className="w-full p-3 border rounded"
                             placeholder="Enter Plant Name"
@@ -60,6 +82,7 @@ const handleUpdatePlant = e =>{
                         <label className="font-semibold">Category</label>
                         <select
                             name="category"
+                            defaultValue={category}
                             required
                             className="w-full p-3 border rounded"
                         >
@@ -77,6 +100,7 @@ const handleUpdatePlant = e =>{
                         <label className="font-semibold">Description</label>
                         <textarea
                             name="description"
+                            defaultValue={description}
                             required
                             className="w-full p-3 border rounded"
                             placeholder="Write plant description"
@@ -88,6 +112,7 @@ const handleUpdatePlant = e =>{
                         <label className="font-semibold">Care Level</label>
                         <select
                             name="careLevel"
+                            defaultValue={careLevel}
                             required
                             className="w-full p-3 border rounded"
                         >
@@ -104,6 +129,7 @@ const handleUpdatePlant = e =>{
                         <input
                             type="text"
                             name="wateringFrequency"
+                            defaultValue={wateringFrequency}
                             required
                             className="w-full p-3 border rounded"
                             placeholder="e.g., every 3 days"
@@ -116,6 +142,7 @@ const handleUpdatePlant = e =>{
                         <input
                             type="date"
                             name="lastWatered"
+                            defaultValue={lastWatered}
                             required
                             className="w-full p-3 border rounded"
                         />
@@ -127,6 +154,8 @@ const handleUpdatePlant = e =>{
                         <input
                             type="date"
                             name="nextWatered"
+                            defaultValue={nextWatered}
+
                             required
                             className="w-full p-3 border rounded"
                         />
@@ -138,6 +167,7 @@ const handleUpdatePlant = e =>{
                         <input
                             type="text"
                             name="healthStatus"
+                            defaultValue={healthStatus}
                             required
                             className="w-full p-3 border rounded"
                             placeholder="e.g., healthy, needs attention"
@@ -145,7 +175,7 @@ const handleUpdatePlant = e =>{
                     </div>
 
                     {/* User Email – Auto-filled */}
-                    {/* <div>
+                    <div>
                         <label className="font-semibold">User Email</label>
                         <input
                             type="email"
@@ -154,10 +184,10 @@ const handleUpdatePlant = e =>{
                             value={user?.email || ""}
                             className="w-full p-3 border rounded bg-gray-100"
                         />
-                    </div> */}
+                    </div>
 
                     {/* User Name – Auto-filled */}
-                    {/* <div>
+                    <div>
                         <label className="font-semibold">User Name</label>
                         <input
                             type="text"
@@ -166,13 +196,13 @@ const handleUpdatePlant = e =>{
                             value={user?.displayName || ""}
                             className="w-full p-3 border rounded bg-gray-100"
                         />
-                    </div> */}
+                    </div>
 
                     <button
                         type="submit"
                         className="w-full py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
                     >
-                       Update Plant
+                        Update Plant
                     </button>
 
                 </form>

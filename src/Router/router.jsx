@@ -22,7 +22,7 @@ const router = createBrowserRouter(
 
     [
         {
-            path: "/", 
+            path: "/",
             element: <MainLayout></MainLayout>,
             children: [
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
                     index: true,
 
 
-                    
+
                     element: <Home></Home>
                 },
                 {
@@ -50,7 +50,7 @@ const router = createBrowserRouter(
 
         {
             path: '/allplants',
-            loader:()=>fetch ('http://localhost:3000/plants'),
+            loader: () => fetch('http://localhost:3000/plants'),
             element: <AllPlants></AllPlants>
 
         },
@@ -64,7 +64,7 @@ const router = createBrowserRouter(
         },
         {
             path: '/myplants',
-             loader:()=>fetch ('http://localhost:3000/plants'),
+            loader: () => fetch('http://localhost:3000/plants'),
             element: <PrivateRouter>
                 <MyPlants></MyPlants>     </PrivateRouter>
 
@@ -72,19 +72,20 @@ const router = createBrowserRouter(
 
         },
 
-{
-path:'/update/:id',
-loader:({params})=> fetch (`http://localhost:3000/plants/${params.id}`),
-element:<Update></Update>
+        {
+            path: '/update/:id',
+            loader:({params})=> fetch (`http://localhost:3000/plants/${params.id}`),
+            // loader: () => fetch('http://localhost:3000/plants'),
+         element: <Update></Update>
 
-},
+        },
 
 
         {
-            path:'/plantdetails/:id',
-           loader:()=>fetch ('http://localhost:3000/plants'),
-           hydrateFallbackElement: <Loading></Loading>,
-            element:<PrivateRouter>
+            path: '/plantdetails/:id',
+            loader: () => fetch('http://localhost:3000/plants'),
+            hydrateFallbackElement: <Loading></Loading>,
+            element: <PrivateRouter>
                 <PlantDetails></PlantDetails>
             </PrivateRouter>
 

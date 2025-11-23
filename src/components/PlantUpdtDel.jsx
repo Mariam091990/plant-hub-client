@@ -84,7 +84,7 @@ setPlants(remainingPlants);
 
                 <div className="w-[50%] mx-auto flex gap-2">
                     <button> <Link className="btn btn-active btn-primary" to={`/plantdetails/${_id}`}>View</Link></button>
-                    <button className="btn btn-active btn-secondary">Update</button>
+                    <button> <Link className="btn btn-active btn-secondary" to={`/update/${_id}`} >Update </Link> </button>
                     <button onClick={()=>handleDelete(_id)} className="btn btn-active btn-accent">Delete</button>
                 </div>
 
