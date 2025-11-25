@@ -54,8 +54,8 @@ setPlants(remainingPlants);
 
 
 
-                <div className="card bg-base-100 shadow-md gap-5  cursor-pointer w-[70%] h-96 mask-t-from-90% mt-12">
-                    <figure className="h-48 w-full">
+                <div className="card bg-base-100 shadow-md gap-5 cursor-pointer w-[90%] h-96 mask-t-from-90% mt-12">
+                    <figure className="ml-6 h-48 w-[60%] justify-center">
                         <img
                             src={image}
                             alt={plantName}
@@ -74,11 +74,7 @@ setPlants(remainingPlants);
                             <span className="font-semibold">Watering:</span> {wateringFrequency}
                         </p>
 
-                        {/* <div className="card-actions justify-end mt-auto">
-                    <Link className="btn btn-primary btn-sm" to={`/plantdetails/${_id}`}>  
-                        View Details
-                   </Link>
-                </div> */}
+                     
                     </div>
                 </div>
 

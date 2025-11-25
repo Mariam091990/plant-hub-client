@@ -17,6 +17,8 @@ console.log(allplants);
 
         <div className='fixed top-0 left-0 w-full z-30 bg-white shadow'>
         <Navbar></Navbar></div>
+
+        
 <div className='container mx-auto'>
 <div className='grid grid-cols-1 md:grid-cols-2 mt-35  gap-2 '>
 
