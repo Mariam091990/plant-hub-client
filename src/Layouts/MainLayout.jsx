@@ -8,7 +8,7 @@ const MainLayout = () => {
     return (
         
             <div className='container mx-auto'>
-                <header>
+                <header className='relative z-50'>
                     <Navbar></Navbar>
                 </header>
 
@@ -25,3 +25,4 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+

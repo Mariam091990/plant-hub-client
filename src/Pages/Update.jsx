@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { LuAsterisk } from 'react-icons/lu';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,6 +12,8 @@ const Update = () => {
     const { image, wateringFrequency, careLevel, plantName, lastWatered, nextWatered, healthStatus, description, category, _id } = useLoaderData();
 
     console.log(image, wateringFrequency, careLevel, plantName, lastWatered, nextWatered, healthStatus, description, category, _id);
+
+    const navigate = useNavigate();
     const handleUpdatePlant = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -39,13 +41,18 @@ const Update = () => {
                         text: "Updated plant has been saved.",
                         icon: "success",
                         confirmButtonColor: "#16a34a"
-                    });
+                    })
+                        .then(() => {
+                            navigate(`/plantdetails/${_id}`);
+                        })
                 }
             })
 
 
 
     }
+
+    // <Navigate to= {`/plantdetails/${_id}`}>     </Navigate>
 
 
 
