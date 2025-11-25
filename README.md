@@ -1,16 +1,187 @@
-# React + Vite
+# 🌿 Plant ~Hub 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live URL:** [https://plant-hub-app.web.app/](https://plant-hub-app.web.app/)
 
-Currently, two official plugins are available:
+A complete plant management web application built with React, Express, MongoDB, and Firebase Authentication. Users can explore plants, add their own, update entries, and manage personal plant collections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ⭐ Main Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🔐 **Full Authentication System** (Email/Password + Google/GitHub login)
+* 🌱 **Add, Update & Delete Plants** with proper validation
+* 📱 **Fully Responsive Design** (Mobile, Tablet, Desktop)
+* 🔒 **Protected Routes** that persist even after page refresh
+* ⚙️ **Environment Variables** used to hide all sensitive credentials
+* 🎨 **Unique UI design** with a creative plant theme (indoor jungle / succulents / bonsai)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧾 Project Requirements Covered
+
+### ✅ GitHub Commits
+
+* **Client side:** Minimum  meaningful commits**
+* **Server side:** Minimum  meaningful commits**
+
+### ✅ General Rules
+
+* No Lorem Ipsum text
+* All error/success messages use SweetAlert2 / toast, not default alerts
+* Private routes do **not** redirect to login after reload
+
+---
+
+## 🧭 Navbar Items
+
+* Logo / Website Name
+* Home
+* All Plants
+* Add Plant (Private Route)
+* My Plants (Private Route)
+* Login / Register OR Logged-in User Info + Logout
+
+**Conditional Rendering:**
+
+* If logged out → Show Login & Register
+* If logged in → Show `photoURL`, hover to show username, and Logout
+
+---
+
+## 🔑 Authentication
+
+### Login Page
+
+* Email, Password, and one social login (Google/GitHub)
+* Redirect to intended route after login
+* Sweet Alert for incorrect credentials
+
+### Register Page
+
+* Name, Email, PhotoURL, Password
+* Password rules: **uppercase + lowercase + at least 6 characters**
+* Success redirect to **Home**
+
+---
+
+## 🏠 Home Page Content
+
+* Navbar
+* Slider with **3 meaningful slides** 
+* NewPlants section (min 6 cards from DB)
+* 2 Additional sections such as:
+* Footer
+
+---
+
+## ➕ Add Plant Page (Private)
+
+Form fields include:
+
+* Image
+* Plant Name
+* Category (select dropdown)
+* Description
+* Care Level (select dropdown)
+* Watering Frequency
+* Last Watered (date)
+* Next Watering (date)
+* Health Status
+* User Email
+* User Name
+
+Success message: SweetAlert2 / toast.
+
+---
+
+## 📋 All Plants Page
+
+* Table view of all plants
+* Show name, category, watering frequency
+* "View Details" button
+
+---
+
+## 🔍 View Details Page (Private)
+
+* Full plant details in a creative layout
+
+---
+
+## 🌿 My Plants Page (Private)
+
+* Display plants added by the logged-in user
+* Update & Delete buttons
+* Delete uses a confirmation modal
+
+---
+
+## ✏️ Update Page
+
+* Form pre-filled with existing values
+* SweetAlert confirmation after update
+
+---
+
+## 🦶 Footer
+
+* Website name
+* Copyright
+* Contact info
+* Social links
+
+---
+
+## ⚠️ 404 Page
+
+A fully designed custom 404 page
+
+---
+
+
+## 🗂️ Tech Stack
+
+### Frontend
+
+* React + Vite
+* React Router
+* SweetAlert2 / Toast
+* TailwindCSS / DaisyUI
+
+### Backend
+
+* Express.js
+* MongoDB
+* dotenv
+* CORS
+
+### Authentication
+
+* Firebase Auth
+
+---
+
+## 🚀 Running the Project
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start client
+
+```bash
+npm run dev
+```
+
+### Start server
+
+```bash
+node index.js
+```
+
+
+
+
+

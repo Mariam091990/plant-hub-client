@@ -51,7 +51,7 @@ const router = createBrowserRouter(
         {
             path: '/allplants',
             loader: () => fetch('https://plant-hub-server.vercel.app/plants'),
-            element: <AllPlants></AllPlants>
+            element:<PrivateRouter> <AllPlants></AllPlants></PrivateRouter>
 
         },
 
