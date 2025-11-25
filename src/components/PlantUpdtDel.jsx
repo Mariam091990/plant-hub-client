@@ -21,7 +21,7 @@ const PlantUpdtDel = ({ plant, plants , setPlants }) => {
 }).then((result) => {
   if (result.isConfirmed) {
 
-fetch(`http://localhost:3000/plants/${_id}`, {
+fetch(`https://plant-hub-server.vercel.app/plants/${_id}`, {
 method: 'DELETE'
 
 })

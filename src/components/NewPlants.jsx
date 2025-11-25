@@ -5,15 +5,15 @@ const NewPlants = () => {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/plants?sortBy=date")
+    fetch("https://plant-hub-server.vercel.app/plants?sortBy=date")
       .then(res => res.json())
-      .then(data => setPlants(data.slice(0, 6))); // take only 6 newest
+      .then(data => setPlants(data.slice(0, 6))); 
   }, []);
 
   return (
     <div className="max-w-6xl mx-auto mt-16">
       <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
-        🌱 New Arrivals
+        🌱 New Arrivals Plants
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6">

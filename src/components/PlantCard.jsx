@@ -5,11 +5,11 @@ const PlantCard = ({ plant }) => {
     const { image, wateringFrequency, plantName, category, _id } = plant;
 
     return (
-        <div className='container mx-auto'>
+        
 
 
         <div className="card bg-base-100 shadow-md gap-5  cursor-pointer w-[70%] h-96 mask-t-from-90% mt-12">
-            <figure className="h-48 w-full">
+            <figure className="h-48 w-full mx-auto">
                 <img
                     src={image}
                     alt={plantName}
@@ -28,13 +28,13 @@ const PlantCard = ({ plant }) => {
                     <span className="font-semibold">Watering:</span> {wateringFrequency}
                 </p>
 
-                <div className="card-actions justify-end mt-auto">
+                <div className=" mx-auto mt-10">
                     <Link className="btn btn-primary btn-sm" to={`/plantdetails/${_id}`}>  
                         View Details
                    </Link>
                 </div>
             </div>
-        </div></div>
+        </div>
     );
 };
 

@@ -25,13 +25,13 @@ const AddPlant = () => {
             healthStatus: form.healthStatus.value,
             userEmail: user?.email,
             userName: user?.displayName,
-             createdAt: new Date(),
+            createdAt: new Date(),
         };
 
         console.log(newPlant);
 
         // Send to database
-        fetch("http://localhost:3000/plants", {
+        fetch("https://plant-hub-server.vercel.app/plants", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -55,10 +55,10 @@ const AddPlant = () => {
     return (
 
         <div>
+            <div className="fixed top-0 left-0 w-full z-30 bg-white shadow">
+                <Navbar></Navbar></div>
 
-            <Navbar></Navbar>
-
-            <div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-10">
+            <div className=" mt-35 max-w-3xl mx-auto p-6 bg-green-50 rounded-xl">
                 <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
                     Add a New Plant
                 </h2>

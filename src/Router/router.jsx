@@ -50,7 +50,7 @@ const router = createBrowserRouter(
 
         {
             path: '/allplants',
-            loader: () => fetch('http://localhost:3000/plants'),
+            loader: () => fetch('https://plant-hub-server.vercel.app/plants'),
             element: <AllPlants></AllPlants>
 
         },
@@ -64,7 +64,7 @@ const router = createBrowserRouter(
         },
         {
             path: '/myplants',
-            loader: () => fetch('http://localhost:3000/plants'),
+            loader: () => fetch('https://plant-hub-server.vercel.app/plants'),
             element: <PrivateRouter>
                 <MyPlants></MyPlants>     </PrivateRouter>
 
@@ -74,8 +74,8 @@ const router = createBrowserRouter(
 
         {
             path: '/update/:id',
-            loader:({params})=> fetch (`http://localhost:3000/plants/${params.id}`),
-            // loader: () => fetch('http://localhost:3000/plants'),
+            loader:({params})=> fetch (`https://plant-hub-server.vercel.app/plants/${params.id}`),
+            // loader: () => fetch('https://plant-hub-server.vercel.app/plants'),
          element: <Update></Update>
 
         },
@@ -83,7 +83,7 @@ const router = createBrowserRouter(
 
         {
             path: '/plantdetails/:id',
-            loader: () => fetch('http://localhost:3000/plants'),
+            loader: () => fetch('https://plant-hub-server.vercel.app/plants'),
             hydrateFallbackElement: <Loading></Loading>,
             element: <PrivateRouter>
                 <PlantDetails></PlantDetails>

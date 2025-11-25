@@ -79,7 +79,7 @@ const handleLogout =()=>{
 
     return (
         <div>
-             <div className="navbar bg-base-100 shadow-sm m-5 px-2 py-5">
+             <div className="navbar bg-base-100 shadow-sm ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -91,7 +91,10 @@ const handleLogout =()=>{
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-blue-400 font-serif"> <img className='w-25' src={plant} alt="eventLogo" /> Plant~Hub </a>
+         <div className='flex' > 
+          <img className='w-27' src={plant} alt="eventLogo" />
+          <a className="btn btn-ghost text-2xl mt-6 text-blue-400 font-serif" ><Link to='/' >  Plant~Hub </Link></a>
+          </div>
         </div>
         
         <div className="navbar-center hidden lg:flex">
@@ -121,8 +124,8 @@ const handleLogout =()=>{
 
           
 
-          {user ? (<button onClick={handleLogout} className='btn btn-primary px-9' >logout</button>) :
-            (<Link to="/auth/login" className='btn btn-primary px-9' >LogIn</Link>)}
+          {user ? (<button onClick={handleLogout} className='btn btn-primary mr-6' >logout</button>) :
+            (<Link to="/auth/login" className='btn btn-primary mr-6' >LogIn</Link>)}
         </div>
       </div>
         </div>

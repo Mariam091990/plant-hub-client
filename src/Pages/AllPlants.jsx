@@ -14,9 +14,11 @@ console.log(allplants);
     return (
         
     <div>
-        <Navbar></Navbar>
 
-<div className='grid grid-cols-1 md:grid-cols-2 mt-3 container mx-auto gap-2 '>
+        <div className='fixed top-0 left-0 w-full z-30 bg-white shadow'>
+        <Navbar></Navbar></div>
+
+<div className='grid grid-cols-1 md:grid-cols-2 mt-35 container mx-auto gap-2 '>
 
 
  {allplants.map(plant =>  <PlantCard key={plant._id} plant={plant}>

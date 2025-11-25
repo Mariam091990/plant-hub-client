@@ -22,7 +22,7 @@ const Update = () => {
 
         // send updatedPlant to db and the carrier is req.body
 
-        fetch(`http://localhost:3000/plants/${_id}`, {
+        fetch(`https://plant-hub-server.vercel.app/plants/${_id}`, {
 
             method: 'PUT',
             headers: {
@@ -34,12 +34,12 @@ const Update = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                     Swal.fire({
-                                            title: "Updated Successfully!",
-                                            text: "Updated plant has been saved.",
-                                            icon: "success",
-                                            confirmButtonColor: "#16a34a"
-                                        });
+                    Swal.fire({
+                        title: "Updated Successfully!",
+                        text: "Updated plant has been saved.",
+                        icon: "success",
+                        confirmButtonColor: "#16a34a"
+                    });
                 }
             })
 
@@ -51,10 +51,10 @@ const Update = () => {
 
     return (
         <div>
+            <div className='fixed top-0 left-0 w-full z-30 bg-white shadow"'>
+                <Navbar></Navbar></div>
 
-            <Navbar></Navbar>
-
-            <div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-10">
+            <div className="max-w-3xl mx-auto p-6 bg-green-50 rounded-xl mt-35">
                 <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
                     Update the Added Plant
                 </h2>

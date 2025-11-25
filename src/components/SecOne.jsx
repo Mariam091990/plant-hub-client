@@ -29,7 +29,7 @@ const plants = [
 
 <div className="max-w-6xl mx-auto mt-20">
       <h2 className="text-3xl font-bold text-green-700 text-center mb-6">
-        🌸 Seasonal Favorites
+        🌸 Seasonal Plants
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6">

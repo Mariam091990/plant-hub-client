@@ -12,33 +12,33 @@ const MyPlants = () => {
     const plantadta = useLoaderData([]);
     // console.log(plantadta);
 
-    const [plants , setPlants]= useState(plantadta);
-   
-   
-   
+    const [plants, setPlants] = useState(plantadta);
+
+
+
     return (
 
-<div>
+        <div>
 
-    <div> <Navbar></Navbar> </div>
+            <div className='fixed top-0 left-0 w-full z-30 bg-white shadow"'> <Navbar></Navbar> </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 mt-3 container mx-auto gap-2 '>
+            <div className='grid grid-cols-1 md:grid-cols-2 mt-35 container mx-auto gap-2 '>
 
 
-            {plants.map((plant) =>  
-            <PlantUpdtDel 
-            key={plant._id}
-            plant={plant}
-            plants={plants}
-            setPlants={setPlants}   
+                {plants.map((plant) =>
+                    <PlantUpdtDel
+                        key={plant._id}
+                        plant={plant}
+                        plants={plants}
+                        setPlants={setPlants}
 
-            />
+                    />
 
-            )}
+                )}
 
-        </div>
-        
-        <Footer></Footer>
+            </div>
+
+            <Footer></Footer>
         </div>
     );
 };
